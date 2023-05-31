@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<robot name="human" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/human</robotNamespace>
+            <robotParam>human_description</robotParam>
+            <controlPeriod>0.001</controlPeriod>
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+            <!-- <legacyModeNS>true</legacyModeNS> -->
+        </plugin>
+    </gazebo>
+
+    <gazebo reference="base_link">
+        <static>true</static>
+        <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="head">
+       <material>Gazebo/Orange</material>
+    </gazebo>
+
+    <gazebo reference="neck">
+       <material>Gazebo/DarkOrangeTransparentOverlay</material>
+    </gazebo>
+
+    <gazebo reference="left_hand">
+       <material>Gazebo/Orange</material>
+    </gazebo>
+
+    <gazebo reference="right_hand">
+       <material>Gazebo/Orange</material>
+    </gazebo>
+
+    <gazebo reference="left_foot">
+       <material>Gazebo/Orange</material>
+    </gazebo>
+
+    <gazebo reference="right_foot">
+       <material>Gazebo/Orange</material>
+    </gazebo>
+
+    <gazebo reference="upper_trunk">
+       <material>Gazebo/Grass</material>
+    </gazebo>
+
+    <gazebo reference="lower_trunk">
+       <material>Gazebo/Green</material>
+    </gazebo>
+
+    <gazebo reference="left_thigh">
+       <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="right_thigh">
+       <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="left_shank">
+       <material>Gazebo/SkyBlue</material>
+    </gazebo>
+
+    <gazebo reference="right_shank">
+       <material>Gazebo/SkyBlue</material>
+    </gazebo>
+
+    <gazebo reference="left_upper_arm">
+       <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="left_forearm">
+       <material>Gazebo/SkyBlue</material>
+    </gazebo>
+
+    <gazebo reference="right_upper_arm">
+       <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <gazebo reference="right_forearm">
+       <material>Gazebo/SkyBlue</material>
+    </gazebo>
+</robot>
