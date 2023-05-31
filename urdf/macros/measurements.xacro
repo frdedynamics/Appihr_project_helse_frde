@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
 <robot name="human" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:property name="human_params" value="${load_yaml('$(find imu_human_pkg)/config/human.yaml')}"/>
+  <xacro:property name="user" value="${xacro.load_yaml('$(find appirh_project_helse_frde)/config/user.yaml')}"/>
+  <xacro:property name="user_name" value="${user['user_name']}" />
+
+  <xacro:property name="human_params" value="${xacro.load_yaml('$(find appirh_project_helse_frde)/test_users/${user_name}/human.yaml')}"/>
 
   <xacro:property name="l_neck" value="0.053" />
   <xacro:property name="head" value="0.212-${l_neck}" />

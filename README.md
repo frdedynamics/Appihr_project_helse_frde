@@ -4,6 +4,8 @@ APPIRH is a project in collaboration with Helse Førde.
 
 ## Prerequisite
 Awindamonitor ROS package: https://github.com/fjnn/xsense-awinda
+PyQT5: `pip install PyQt5`
+(For developers only: https://build-system.fman.io/qt-designer-download)
 
 ## How to run
 1. Start ROS: `roscore`

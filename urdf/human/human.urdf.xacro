@@ -1,14 +1,14 @@
 <?xml version="1.0" ?>
 <robot name="human" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find imu_human_pkg)/urdf/macros/measurements.xacro" />
-  <xacro:include filename="$(find imu_human_pkg)/urdf/macros/materials.xacro" />
-  <xacro:include filename="$(find imu_human_pkg)/urdf/macros/human.gazebo.xacro" /> 
-  <xacro:include filename="$(find imu_human_pkg)/urdf/macros/human.transmission.xacro" /> 
+  <xacro:include filename="$(find appirh_project_helse_frde)/urdf/macros/measurements.xacro" />
+  <xacro:include filename="$(find appirh_project_helse_frde)/urdf/macros/materials.xacro" />
+  <xacro:include filename="$(find appirh_project_helse_frde)/urdf/macros/human.gazebo.xacro" /> 
+  <xacro:include filename="$(find appirh_project_helse_frde)/urdf/macros/human.transmission.xacro" /> 
   
-  <xacro:include filename="$(find imu_human_pkg)/urdf/macros/spherical.xacro"/>
-  <xacro:include filename="$(find imu_human_pkg)/urdf/human/human_lower.xacro"/>
-  <xacro:include filename="$(find imu_human_pkg)/urdf/human/human_upper.xacro"/>
+  <xacro:include filename="$(find appirh_project_helse_frde)/urdf/macros/spherical.xacro"/>
+  <xacro:include filename="$(find appirh_project_helse_frde)/urdf/human/human_lower.xacro"/>
+  <xacro:include filename="$(find appirh_project_helse_frde)/urdf/human/human_upper.xacro"/>
   <create/>
 
   <link name="world"/>
