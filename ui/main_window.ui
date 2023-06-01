@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>968</width>
-    <height>677</height>
+    <width>600</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -76,9 +76,9 @@
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>20</y>
-      <width>901</width>
+      <width>391</width>
       <height>171</height>
      </rect>
     </property>
@@ -147,117 +147,12 @@
       <string>Create new user</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_5">
-     <property name="geometry">
-      <rect>
-       <x>400</x>
-       <y>30</y>
-       <width>151</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>User Measures:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_6">
-     <property name="geometry">
-      <rect>
-       <x>440</x>
-       <y>60</y>
-       <width>141</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Chest to shoulder:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_7">
-     <property name="geometry">
-      <rect>
-       <x>440</x>
-       <y>90</y>
-       <width>141</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Shoulder to elbow:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_8">
-     <property name="geometry">
-      <rect>
-       <x>440</x>
-       <y>120</y>
-       <width>141</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Elbow to wrist:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_9">
-     <property name="geometry">
-      <rect>
-       <x>440</x>
-       <y>150</y>
-       <width>141</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Wrist to finger tip:</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_chest_to_shoulder">
-     <property name="geometry">
-      <rect>
-       <x>610</x>
-       <y>50</y>
-       <width>113</width>
-       <height>25</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_shoulder_to_elbow">
-     <property name="geometry">
-      <rect>
-       <x>610</x>
-       <y>80</y>
-       <width>113</width>
-       <height>25</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_elbow_to_wrist">
-     <property name="geometry">
-      <rect>
-       <x>610</x>
-       <y>110</y>
-       <width>113</width>
-       <height>25</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_wrist_to_fingertip">
-     <property name="geometry">
-      <rect>
-       <x>610</x>
-       <y>140</y>
-       <width>113</width>
-       <height>25</height>
-      </rect>
-     </property>
-    </widget>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>790</x>
-      <y>540</y>
+      <x>450</x>
+      <y>280</y>
       <width>141</width>
       <height>61</height>
      </rect>
@@ -272,7 +167,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>968</width>
+     <width>600</width>
      <height>22</height>
     </rect>
    </property>
