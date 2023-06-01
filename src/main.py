@@ -9,14 +9,22 @@ from PyQt5.QtCore import *
 
 import sys
 import re
+import rospy, roslaunch
+import subprocess, time
+from pathlib import Path
+from os import chdir, mkdir
 
 from PyQt5.QtWidgets import QWidget # for split string with multiple delimiters
 
 from Classes.main_window import Ui_MainWindow
 from Classes.first_patient_selection import Ui_Dialog as PatientSelectionDialog
 from Classes.new_patient import Ui_Dialog as CreateNewPatientDialog
-from Classes.add_to_existing_patient import Ui_Dialog as AddToExistingPatientDialog
 
+from Classes.AddToExistingPatient import AddToExistingPatient
+
+
+
+# TODO: Put these classes into separate files as the project expands (like AddToExistingPatient.py)
 class PatientSelection(QWidget, PatientSelectionDialog):
     def __init__(self, parent=None):
         super(PatientSelection, self).__init__(parent)
@@ -26,12 +34,6 @@ class CreateNewPatient(QWidget, CreateNewPatientDialog):
     def __init__(self, parent=None):
         super(CreateNewPatient, self).__init__(parent)
         self.setupUi(self)
-
-class AddToExistingPatient(QWidget, AddToExistingPatientDialog):
-    def __init__(self, parent=None):
-        super(AddToExistingPatient, self).__init__(parent)
-        self.setupUi(self)
-        
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
@@ -43,6 +45,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.button_record_data.clicked.connect(self.start_patient_selection_window)
 
+        self.add_to_existing_patient()  ## FOR DEBUG ONLY
         self.show()
 
     
