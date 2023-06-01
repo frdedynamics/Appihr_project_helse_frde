@@ -23,7 +23,7 @@ class Ui_MainWindow(object):
         self.button_record_data.setGeometry(QtCore.QRect(230, 160, 141, 61))
         self.button_record_data.setObjectName("button_record_data")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(250, 260, 91, 81))
+        self.label.setGeometry(QtCore.QRect(250, 260, 100, 100))
         self.label.setText("")
         self.label.setPixmap(QtGui.QPixmap("/home/gizem/catkin_ws/src/appirh_project_helse_frde/ui/../fig/hvlLogo_original.png"))
         self.label.setScaledContents(True)
@@ -51,7 +51,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.button_review_data.setText(_translate("MainWindow", "Review Data"))
         self.button_record_data.setText(_translate("MainWindow", "Record Data"))
-        self.menuFile.setTitle(_translate("MainWindow", "File"))
+        self.menuFile.setTitle(_translate("MainWindow", "Options"))
         self.actionHelp.setText(_translate("MainWindow", "Help"))
 
 

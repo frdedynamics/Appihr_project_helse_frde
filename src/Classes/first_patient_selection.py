@@ -13,12 +13,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(492, 377)
+        Dialog.resize(600, 400)
         self.button_newPatient = QtWidgets.QPushButton(Dialog)
-        self.button_newPatient.setGeometry(QtCore.QRect(260, 190, 171, 41))
+        self.button_newPatient.setGeometry(QtCore.QRect(320, 140, 171, 41))
         self.button_newPatient.setObjectName("button_newPatient")
         self.button_addPatient = QtWidgets.QPushButton(Dialog)
-        self.button_addPatient.setGeometry(QtCore.QRect(70, 190, 171, 41))
+        self.button_addPatient.setGeometry(QtCore.QRect(130, 140, 171, 41))
         self.button_addPatient.setObjectName("button_addPatient")
 
         self.retranslateUi(Dialog)

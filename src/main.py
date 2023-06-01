@@ -35,6 +35,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.Dialog = QDialog()
 
+        self.button_record_data.clicked.connect(self.start_patient_selection_window)
+
         self.show()
 
         # Start the corresponding window.

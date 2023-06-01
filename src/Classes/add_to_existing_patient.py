@@ -13,9 +13,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(480, 640)
+        Dialog.resize(600, 400)
         self.groupBox_2 = QtWidgets.QGroupBox(Dialog)
-        self.groupBox_2.setGeometry(QtCore.QRect(50, 80, 391, 171))
+        self.groupBox_2.setGeometry(QtCore.QRect(100, 20, 391, 171))
         self.groupBox_2.setObjectName("groupBox_2")
         self.label = QtWidgets.QLabel(self.groupBox_2)
         self.label.setGeometry(QtCore.QRect(60, 70, 41, 17))
@@ -30,7 +30,7 @@ class Ui_Dialog(object):
         self.label_4.setGeometry(QtCore.QRect(10, 30, 271, 17))
         self.label_4.setObjectName("label_4")
         self.groupBox = QtWidgets.QGroupBox(Dialog)
-        self.groupBox.setGeometry(QtCore.QRect(50, 300, 321, 131))
+        self.groupBox.setGeometry(QtCore.QRect(40, 200, 321, 131))
         self.groupBox.setObjectName("groupBox")
         self.label_3 = QtWidgets.QLabel(self.groupBox)
         self.label_3.setGeometry(QtCore.QRect(20, 70, 141, 17))
@@ -45,7 +45,7 @@ class Ui_Dialog(object):
         self.timeEdit.setGeometry(QtCore.QRect(170, 70, 121, 26))
         self.timeEdit.setObjectName("timeEdit")
         self.pushButton = QtWidgets.QPushButton(Dialog)
-        self.pushButton.setGeometry(QtCore.QRect(330, 530, 141, 61))
+        self.pushButton.setGeometry(QtCore.QRect(400, 240, 141, 61))
         self.pushButton.setObjectName("pushButton")
 
         self.retranslateUi(Dialog)
