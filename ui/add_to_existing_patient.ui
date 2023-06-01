@@ -134,7 +134,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="button_next">
    <property name="geometry">
     <rect>
      <x>400</x>
@@ -145,6 +145,19 @@
    </property>
    <property name="text">
     <string>&gt; Next (Progress)</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="button_back">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt; Back</string>
    </property>
   </widget>
  </widget>

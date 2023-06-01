@@ -44,9 +44,12 @@ class Ui_Dialog(object):
         self.timeEdit = QtWidgets.QTimeEdit(self.groupBox)
         self.timeEdit.setGeometry(QtCore.QRect(170, 70, 121, 26))
         self.timeEdit.setObjectName("timeEdit")
-        self.pushButton = QtWidgets.QPushButton(Dialog)
-        self.pushButton.setGeometry(QtCore.QRect(400, 240, 141, 61))
-        self.pushButton.setObjectName("pushButton")
+        self.button_next = QtWidgets.QPushButton(Dialog)
+        self.button_next.setGeometry(QtCore.QRect(400, 240, 141, 61))
+        self.button_next.setObjectName("button_next")
+        self.button_back = QtWidgets.QPushButton(Dialog)
+        self.button_back.setGeometry(QtCore.QRect(0, 0, 89, 25))
+        self.button_back.setObjectName("button_back")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -61,7 +64,8 @@ class Ui_Dialog(object):
         self.groupBox.setTitle(_translate("Dialog", "Appointment"))
         self.label_3.setText(_translate("Dialog", "Appointment Time:"))
         self.label_2.setText(_translate("Dialog", "Appointment Date:"))
-        self.pushButton.setText(_translate("Dialog", "> Next (Progress)"))
+        self.button_next.setText(_translate("Dialog", "> Next (Progress)"))
+        self.button_back.setText(_translate("Dialog", "< Back"))
 
 
 if __name__ == "__main__":
