@@ -12,23 +12,36 @@ import re
 
 from PyQt5.QtWidgets import QWidget # for split string with multiple delimiters
 
-from Classes.main import Ui_MainWindow
+from Classes.main_window import Ui_MainWindow
 from Classes.first_patient_selection import Ui_Dialog as PatientSelectionDialog
+from Classes.new_patient import Ui_Dialog as CreateNewPatientDialog
 
 class PatientSelection(QWidget, PatientSelectionDialog):
     def __init__(self, parent=None):
         super(PatientSelection, self).__init__(parent)
         self.setupUi(self)
 
+
+class CreateNewPatient(QWidget, CreateNewPatientDialog):
+    def __init__(self, parent=None):
+        super(CreateNewPatient, self).__init__(parent)
+        self.setupUi(self)
+        
+
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
         self.resize(492, 377)
+        self.setupUi(self)
+        self.Dialog = QDialog()
 
-        self.startPatientSelectionWindow()
+        self.show()
+
+        # Start the corresponding window.
+        #self.start_patient_selection_window()
 
     
-    def startPatientSelectionWindow(self):
+    def start_patient_selection_window(self):
         self.PatientSelection = PatientSelection(self)
         self.setCentralWidget(self.PatientSelection)
         self.setWindowTitle("Select Patient")
@@ -38,12 +51,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.show()
 
-    
+
     def add_to_existing_patient(self):
         print("add")
 
-    def create_new_patient(self):
+    def create_new_patient(self):  ## opens new patient creation dialog
         print("create")
+        self.newPatientTool = CreateNewPatient(self)
+        self.newPatientTool.setupUi(self.Dialog)
+        self.Dialog.setWindowTitle("New Patient")
+        self.Dialog.show()
 
 
 if __name__ == '__main__':
