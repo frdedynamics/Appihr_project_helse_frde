@@ -33,7 +33,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.setCentralWidget(self.PatientSelection)
         self.setWindowTitle("Select Patient")
 
+        self.PatientSelection.button_addPatient.clicked.connect(self.add_to_existing_patient)
+        self.PatientSelection.button_newPatient.clicked.connect(self.create_new_patient)
+
         self.show()
+
+    
+    def add_to_existing_patient(self):
+        print("add")
+
+    def create_new_patient(self):
+        print("create")
 
 
 if __name__ == '__main__':

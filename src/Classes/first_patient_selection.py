@@ -14,12 +14,12 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(492, 377)
-        self.button_new_user = QtWidgets.QPushButton(Dialog)
-        self.button_new_user.setGeometry(QtCore.QRect(260, 190, 171, 41))
-        self.button_new_user.setObjectName("button_new_user")
-        self.button_new_user_2 = QtWidgets.QPushButton(Dialog)
-        self.button_new_user_2.setGeometry(QtCore.QRect(70, 190, 171, 41))
-        self.button_new_user_2.setObjectName("button_new_user_2")
+        self.button_newPatient = QtWidgets.QPushButton(Dialog)
+        self.button_newPatient.setGeometry(QtCore.QRect(260, 190, 171, 41))
+        self.button_newPatient.setObjectName("button_newPatient")
+        self.button_addPatient = QtWidgets.QPushButton(Dialog)
+        self.button_addPatient.setGeometry(QtCore.QRect(70, 190, 171, 41))
+        self.button_addPatient.setObjectName("button_addPatient")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -27,8 +27,8 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.button_new_user.setText(_translate("Dialog", "Create new patient "))
-        self.button_new_user_2.setText(_translate("Dialog", "Add to existing patient"))
+        self.button_newPatient.setText(_translate("Dialog", "Create new patient "))
+        self.button_addPatient.setText(_translate("Dialog", "Add to existing patient"))
 
 
 if __name__ == "__main__":
