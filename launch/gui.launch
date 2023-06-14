@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a place holder GUI launch so that new nodes can ben added based on this launch files UUID. Maybe I can consider starting awindamonitor here later -->
+
+<launch>
+    <rosparam command="load" param="ros_node_started" />
+    <!-- <node pkg="appirh_project_helse_frde" name="gui_node" type="gui_node.py"/> -->
+    <!-- <node name="arduino_node" pkg="rosserial_python" type="serial_node.py" args="/dev/ttyACM1 9600" respawn="false" /> -->
+
+</launch>
+
