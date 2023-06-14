@@ -24,23 +24,29 @@ class AddToExistingPatient(QWidget, AddToExistingPatientDialog):
         super(AddToExistingPatient, self).__init__(parent)
         self.setupUi(self)
 
-        self.select_patient()
+        self.list_patient()
 
-        self.comboBox_userlist.setEnabled(True)
-        self.comboBox_userlist.setEditable(True)
-        self.comboBox_userlist.completer().setCompletionMode(QCompleter.PopupCompletion) 
-        self.comboBox_userlist.setInsertPolicy(QComboBox.NoInsert) 
+        self.comboBox_patientlist.setEnabled(True)
+        self.comboBox_patientlist.setEditable(True)
+        self.comboBox_patientlist.completer().setCompletionMode(QCompleter.PopupCompletion) 
+        self.comboBox_patientlist.setInsertPolicy(QComboBox.NoInsert) 
+        self.comboBox_patientlist.currentIndexChanged.connect(self.select_patient)
+
+        self.button_next.clicked.connect(self.select_patient)
 
 
-    def select_patient(self):
+    def list_patient(self):
         chdir(PKG_PATH+"/test_users/")
         proc = subprocess.Popen(['ls', '-l'], stdout=subprocess.PIPE)
         self.patient_list = []
-        self.comboBox_userlist.addItems([''])
+        self.comboBox_patientlist.addItems([''])
         # print(proc.stdout.read())
         for patient in str(proc.stdout.read()).split('\\n')[1:-1]:
             patient_folder_info = re.split(r"\s+", patient)[-4:] # ['juni', '20', '23:20', '0']
             patient_info = str(patient_folder_info[3])
             self.patient_list.append(patient_info)
-        print(self.patient_list)
-        self.comboBox_userlist.addItems(self.patient_list)
+        self.comboBox_patientlist.addItems(self.patient_list)
+
+
+    def select_patient(self):
+        self.selected_patient = self.comboBox_patientlist.currentText()
