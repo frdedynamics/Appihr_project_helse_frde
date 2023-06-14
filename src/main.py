@@ -10,7 +10,7 @@ from PyQt5.QtCore import *
 import sys
 import re
 import rospy, roslaunch
-import subprocess, time
+import subprocess, time, signal
 from pathlib import Path
 from os import chdir, mkdir, getcwd
 from time import sleep
@@ -109,6 +109,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 
 
+
+
     def start_measurement_window(self):
         print("Measurement started")
         self.MeasurementTool = RealTimeMeasurement(self)
@@ -121,7 +123,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 
     def start_awindamonitor(self):
-        chdir(PKG_PATH+"/launch/")
+        chdir(PKG_PATH)
         print(getcwd())
         self.rosTimer.start(10)        
         self.ros_node.init_subscribers_and_publishers()
@@ -132,8 +134,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # self.add_rosnode("appirh_project_helse_frde", "visualize_angles.py", "visualize_angles") 
 
         # Start Awindamonitor
-        self.add_rosnode("awindamonitor", "awindamonitor", "awindamonitor")
+        ##### self.add_rosnode("awindamonitor", "awindamonitor", "awindamonitor")
+        # Or rosbag
+        self.proc_bag = subprocess.Popen(["rosbag", "play", "-l", "/bag/test_bag_6_imus.bag"])
 
+        
         self.human_proc = subprocess.Popen(["sh", "sh/human.sh"]) ## Otherway halts the system. You need to use Popen: https://stackoverflow.com/questions/16855642/execute-a-shell-script-from-python-subprocess
 
 
@@ -147,6 +152,20 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def add_rosnode(self, pkg_name, node_name, name, args=None, respawn=True):
         node = roslaunch.core.Node(pkg_name, node_name, name, args)
         self.launch.launch(node)
+
+    
+    def stop_all_roslaunch(self):
+        try:
+            self.proc_bag.send_signal(signal.SIGINT)
+        except AttributeError as e:
+            print("error in killing", e)
+        
+        p_kill1 = subprocess.Popen(["rosnode", "kill", "-a"]) # not sure if I need a return object. Keep it for now
+        p_kill2 = subprocess.Popen(["pkill", "-9", "ros"])
+        # TODO: kill Rviz manually
+        self.rosTimer.stop()
+        self.guiTimer.stop()
+
 
 
 

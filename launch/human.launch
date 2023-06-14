@@ -8,7 +8,7 @@
   <!-- Load joint controller configurations from YAML file to parameter server -->
   <rosparam file="$(find appirh_project_helse_frde)/config/human_control.yaml" command="load"/>
   <!-- <arg name="human_params" default="$(find appirh_project_helse_frde)/config/human.yaml"/> -->
-  <arg name="human_params" default="$(find appirh_project_helse_frde)/test_users/$user/human.yaml"/>
+  <arg name="human_params" default="$(find appirh_project_helse_frde)/dynamic_patient_files/human.yaml"/>
 
   <!-- Load sensor topics from YAML file to parameter server -->
   <rosparam file="$(find appirh_project_helse_frde)/config/sensors.yaml" command="load"/>
