@@ -286,6 +286,32 @@
     <string>&lt; Back</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="button_start_sensor">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>60</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Start Sensor Module</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="button_start_measurement">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>110</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Start Measurement</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

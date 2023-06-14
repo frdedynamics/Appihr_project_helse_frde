@@ -83,6 +83,12 @@ class Ui_Dialog(object):
         self.button_back = QtWidgets.QPushButton(Dialog)
         self.button_back.setGeometry(QtCore.QRect(10, 10, 89, 25))
         self.button_back.setObjectName("button_back")
+        self.button_start_sensor = QtWidgets.QPushButton(Dialog)
+        self.button_start_sensor.setGeometry(QtCore.QRect(30, 60, 151, 41))
+        self.button_start_sensor.setObjectName("button_start_sensor")
+        self.button_start_measurement = QtWidgets.QPushButton(Dialog)
+        self.button_start_measurement.setGeometry(QtCore.QRect(30, 110, 151, 41))
+        self.button_start_measurement.setObjectName("button_start_measurement")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -105,6 +111,8 @@ class Ui_Dialog(object):
         self.label_9.setText(_translate("Dialog", "Internal rotation:"))
         self.label.setText(_translate("Dialog", "Additional Notes:"))
         self.button_back.setText(_translate("Dialog", "< Back"))
+        self.button_start_sensor.setText(_translate("Dialog", "Start Sensor Module"))
+        self.button_start_measurement.setText(_translate("Dialog", "Start Measurement"))
 
 
 if __name__ == "__main__":
