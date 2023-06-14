@@ -73,8 +73,8 @@ class VisualizeMarkers:
 
     @staticmethod
     def map_angle(angle):
-        min_value = -3.14
-        max_value = 3.14
+        min_value = -1
+        max_value = 1
         min_output = 0
         max_output = 255
 
