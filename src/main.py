@@ -47,7 +47,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.patient = None
 
-        self.add_to_existing_patient()  ## FOR DEBUG ONLY
+        self.start_threshold_window()  ## FOR DEBUG ONLY
         self.show()
 
     
@@ -83,11 +83,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 
     def start_threshold_window(self):
-        self.patient = self.addToPatientTool.selected_patient
+        #self.patient = self.addToPatientTool.selected_patient
+        self.patient = "gizem"
         print("Threshold selection started. Patient: ", self.patient)
         self.ThresholdSelection = ThresholdSelection(self)
+        self.ThresholdSelection.patient = self.patient ## A bit ambigius but fix later if needed.
         self.setCentralWidget(self.ThresholdSelection)
         self.setWindowTitle("Threshold Selection")
+
 
 
     def start_measurement_window(self):
