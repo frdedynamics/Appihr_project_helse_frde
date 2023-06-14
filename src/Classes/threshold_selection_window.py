@@ -51,6 +51,9 @@ class Ui_Dialog(object):
         self.button_load_older_data = QtWidgets.QPushButton(Dialog)
         self.button_load_older_data.setGeometry(QtCore.QRect(350, 40, 131, 31))
         self.button_load_older_data.setObjectName("button_load_older_data")
+        self.button_back = QtWidgets.QPushButton(Dialog)
+        self.button_back.setGeometry(QtCore.QRect(0, 10, 89, 25))
+        self.button_back.setObjectName("button_back")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -67,6 +70,7 @@ class Ui_Dialog(object):
         self.label_2.setText(_translate("Dialog", "Shoulder extension/flexion:"))
         self.label_5.setText(_translate("Dialog", "External rotation:"))
         self.button_load_older_data.setText(_translate("Dialog", "Load Older Data"))
+        self.button_back.setText(_translate("Dialog", "< Back"))
 
 
 if __name__ == "__main__":

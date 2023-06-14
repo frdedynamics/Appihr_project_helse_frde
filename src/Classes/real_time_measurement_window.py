@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/gizem/catkin_ws/src/appirh_project_helse_frde/ui/real_time_measurement.ui'
+# Form implementation generated from reading ui file '/home/gizem/catkin_ws/src/appirh_project_helse_frde/ui/real_time_measurement_window.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.1
 #
@@ -13,9 +13,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(947, 400)
+        Dialog.resize(947, 562)
         self.groupBox_prev = QtWidgets.QGroupBox(Dialog)
-        self.groupBox_prev.setGeometry(QtCore.QRect(30, 30, 441, 191))
+        self.groupBox_prev.setGeometry(QtCore.QRect(30, 190, 441, 191))
         self.groupBox_prev.setObjectName("groupBox_prev")
         self.label_3 = QtWidgets.QLabel(self.groupBox_prev)
         self.label_3.setGeometry(QtCore.QRect(10, 70, 261, 17))
@@ -38,20 +38,20 @@ class Ui_Dialog(object):
         self.lineEdit_intern_rot = QtWidgets.QLineEdit(self.groupBox_prev)
         self.lineEdit_intern_rot.setGeometry(QtCore.QRect(270, 100, 113, 25))
         self.lineEdit_intern_rot.setObjectName("lineEdit_intern_rot")
-        self.lineEdit_extern_rot = QtWidgets.QLineEdit(self.groupBox_prev)
-        self.lineEdit_extern_rot.setGeometry(QtCore.QRect(270, 130, 113, 25))
-        self.lineEdit_extern_rot.setObjectName("lineEdit_extern_rot")
+        self.lineEdit_5 = QtWidgets.QLineEdit(self.groupBox_prev)
+        self.lineEdit_5.setGeometry(QtCore.QRect(270, 130, 113, 25))
+        self.lineEdit_5.setObjectName("lineEdit_5")
         self.button_snap = QtWidgets.QPushButton(Dialog)
-        self.button_snap.setGeometry(QtCore.QRect(350, 340, 121, 51))
+        self.button_snap.setGeometry(QtCore.QRect(270, 490, 121, 51))
         self.button_snap.setObjectName("button_snap")
         self.button_end_and_save = QtWidgets.QPushButton(Dialog)
-        self.button_end_and_save.setGeometry(QtCore.QRect(490, 340, 131, 51))
+        self.button_end_and_save.setGeometry(QtCore.QRect(410, 490, 131, 51))
         self.button_end_and_save.setObjectName("button_end_and_save")
         self.plainTextEdit_add_note = QtWidgets.QPlainTextEdit(Dialog)
-        self.plainTextEdit_add_note.setGeometry(QtCore.QRect(30, 250, 891, 70))
+        self.plainTextEdit_add_note.setGeometry(QtCore.QRect(30, 410, 891, 70))
         self.plainTextEdit_add_note.setObjectName("plainTextEdit_add_note")
         self.groupBox_current = QtWidgets.QGroupBox(Dialog)
-        self.groupBox_current.setGeometry(QtCore.QRect(480, 30, 441, 191))
+        self.groupBox_current.setGeometry(QtCore.QRect(480, 190, 441, 191))
         self.groupBox_current.setObjectName("groupBox_current")
         self.label_6 = QtWidgets.QLabel(self.groupBox_current)
         self.label_6.setGeometry(QtCore.QRect(10, 70, 261, 17))
@@ -74,12 +74,15 @@ class Ui_Dialog(object):
         self.lineEdit_intern_rot_2 = QtWidgets.QLineEdit(self.groupBox_current)
         self.lineEdit_intern_rot_2.setGeometry(QtCore.QRect(270, 100, 113, 25))
         self.lineEdit_intern_rot_2.setObjectName("lineEdit_intern_rot_2")
-        self.lineEdit_extern_rot_2 = QtWidgets.QLineEdit(self.groupBox_current)
-        self.lineEdit_extern_rot_2.setGeometry(QtCore.QRect(270, 130, 113, 25))
-        self.lineEdit_extern_rot_2.setObjectName("lineEdit_extern_rot_2")
+        self.lineEdit_12 = QtWidgets.QLineEdit(self.groupBox_current)
+        self.lineEdit_12.setGeometry(QtCore.QRect(270, 130, 113, 25))
+        self.lineEdit_12.setObjectName("lineEdit_12")
         self.label = QtWidgets.QLabel(Dialog)
-        self.label.setGeometry(QtCore.QRect(30, 230, 131, 17))
+        self.label.setGeometry(QtCore.QRect(30, 390, 131, 17))
         self.label.setObjectName("label")
+        self.button_back = QtWidgets.QPushButton(Dialog)
+        self.button_back.setGeometry(QtCore.QRect(10, 10, 89, 25))
+        self.button_back.setObjectName("button_back")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -101,6 +104,7 @@ class Ui_Dialog(object):
         self.label_8.setText(_translate("Dialog", "Shoulder extension/flexion:"))
         self.label_9.setText(_translate("Dialog", "Internal rotation:"))
         self.label.setText(_translate("Dialog", "Additional Notes:"))
+        self.button_back.setText(_translate("Dialog", "< Back"))
 
 
 if __name__ == "__main__":

@@ -117,4 +117,3 @@ class ThresholdSelection(QWidget, ThresholdSelectionDialog):
                 line = f"{key}: {value}\n"
                 file.write(line)
         print("done")
-        

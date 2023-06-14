@@ -1,6 +1,6 @@
 #!/bin/bash
 # Input Files Array
-input_files=("main_window.ui" "new_patient.ui" "threshold_selection_window.ui" "first_patient_selection.ui" "add_to_existing_patient.ui" "real_time_measurement.ui")
+input_files=("main_window.ui" "new_patient.ui" "threshold_selection_window.ui" "first_patient_selection.ui" "add_to_existing_patient.ui" "real_time_measurement_window.ui")
 
 # Paths
 ui_dir="/home/gizem/catkin_ws/src/appirh_project_helse_frde/ui/"

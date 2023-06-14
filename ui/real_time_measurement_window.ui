@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>947</width>
-    <height>400</height>
+    <height>562</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>30</y>
+     <y>190</y>
      <width>441</width>
      <height>191</height>
     </rect>
@@ -107,7 +107,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_extern_rot">
+   <widget class="QLineEdit" name="lineEdit_5">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -121,8 +121,8 @@
   <widget class="QPushButton" name="button_snap">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>340</y>
+     <x>270</x>
+     <y>490</y>
      <width>121</width>
      <height>51</height>
     </rect>
@@ -135,8 +135,8 @@
   <widget class="QPushButton" name="button_end_and_save">
    <property name="geometry">
     <rect>
-     <x>490</x>
-     <y>340</y>
+     <x>410</x>
+     <y>490</y>
      <width>131</width>
      <height>51</height>
     </rect>
@@ -149,7 +149,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>250</y>
+     <y>410</y>
      <width>891</width>
      <height>70</height>
     </rect>
@@ -159,7 +159,7 @@
    <property name="geometry">
     <rect>
      <x>480</x>
-     <y>30</y>
+     <y>190</y>
      <width>441</width>
      <height>191</height>
     </rect>
@@ -249,7 +249,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_extern_rot_2">
+   <widget class="QLineEdit" name="lineEdit_12">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -264,13 +264,26 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>230</y>
+     <y>390</y>
      <width>131</width>
      <height>17</height>
     </rect>
    </property>
    <property name="text">
     <string>Additional Notes:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="button_back">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt; Back</string>
    </property>
   </widget>
  </widget>

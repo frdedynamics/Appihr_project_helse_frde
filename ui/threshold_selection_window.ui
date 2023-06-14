@@ -161,6 +161,19 @@
     <string>Load Older Data</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="button_back">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>10</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt; Back</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
