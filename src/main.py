@@ -113,8 +113,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 
 
-
-
     def start_measurement_window(self):
         print("Measurement started")
         self.MeasurementTool = RealTimeMeasurement(self)
