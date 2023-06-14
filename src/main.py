@@ -14,6 +14,7 @@ import subprocess, time, signal
 from pathlib import Path
 from os import chdir, mkdir, getcwd
 from time import sleep
+from shutil import copyfile
 
 from PyQt5.QtWidgets import QWidget # for split string with multiple delimiters
 
@@ -100,12 +101,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.patient = "gizem"
         print("Threshold selection started. Patient: ", self.patient)
         self.ThresholdSelection = ThresholdSelection(self)
-        self.ThresholdSelection.patient = self.patient ## A bit ambigius but fix later if needed.
         self.setCentralWidget(self.ThresholdSelection)
         self.setWindowTitle("Threshold Selection")
 
         self.ThresholdSelection.button_assign.clicked.connect(self.start_measurement_window)
         self.ThresholdSelection.button_back.clicked.connect(self.add_to_existing_patient)
+
+        src_file = PKG_PATH+'/test_users/'+self.patient+'/human.yaml'
+        dest_file = PKG_PATH+'/dynamic_patient_files/human.yaml'
+        copyfile(src_file, dest_file)
 
 
 
