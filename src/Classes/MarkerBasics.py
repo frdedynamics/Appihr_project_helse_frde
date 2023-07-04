@@ -76,7 +76,7 @@ class MarkerBasics(object):
         self.marker_object.text = str(score)
 
     
-    def init_str_marker(self, text):
+    def init_str_marker(self, text="*"):
         self.marker_idx = 1
         self.marker_object = Marker()
         for i in range(1):

@@ -15,7 +15,9 @@ class VisualizeMarkers:
         self.human_angle_thresholds = JointState()
         self.left_arm_marker = MarkerBasics(topic_id="left_shoulder_virt_link_", type="arm")
         self.right_arm_marker = MarkerBasics(topic_id="right_shoulder_virt_link_", type="arm")
-        self.ref_link = 'human_base_link'
+        self.left_arm_progress_marker = MarkerBasics(topic_id="left_shoulder_progress_", type="regular_str")
+        self.left_progress_str = "***"
+        self.ref_link = 'world'
         self.left_arm_th = 1.7 ##TODO: get from rosparam
 
         self.tfBuffer = tf2_ros.Buffer()
@@ -30,12 +32,14 @@ class VisualizeMarkers:
     def init_subscribers_and_publishers(self):
         self.sub_human_joint_angles = rospy.Subscriber('/human/human_joint_states', JointState, self.human_joint_angles_cb)
 
+        self.left_arm_progress_marker.change_position(1.0, 1.0, 1.0)
+
 
 
     def update(self):
         try:
-            left_shoulder_trans = self.tfBuffer.lookup_transform(self.ref_link, 'left_shoulder_virt_link_1', rospy.Time())
-            right_shoulder_trans = self.tfBuffer.lookup_transform(self.ref_link, 'right_shoulder_virt_link_1', rospy.Time())
+            left_shoulder_trans = self.tfBuffer.lookup_transform(self.ref_link, 'left_shoulder_virt_link_3', rospy.Time())
+            right_shoulder_trans = self.tfBuffer.lookup_transform(self.ref_link, 'right_shoulder_virt_link_3', rospy.Time())
 
             self.left_arm_marker.marker_object.pose.position = left_shoulder_trans.transform.translation
             self.left_arm_marker.marker_object.pose.orientation = left_shoulder_trans.transform.rotation
@@ -49,11 +53,11 @@ class VisualizeMarkers:
         try:
             print("left")
             self.left_arm_marker.change_colour(R=VisualizeMarkers.map_angle(self.human_joint_angles.position[3]), 
-                                            G=VisualizeMarkers.map_angle(self.human_joint_angles.position[4]), 
-                                            B=VisualizeMarkers.map_angle(self.human_joint_angles.position[5]))
+                                            G=VisualizeMarkers.map_angle(self.human_joint_angles.position[3]), 
+                                            B=VisualizeMarkers.map_angle(self.human_joint_angles.position[4]))
             self.right_arm_marker.change_colour(R=VisualizeMarkers.map_angle(self.human_joint_angles.position[6]), 
-                                                G=VisualizeMarkers.map_angle(self.human_joint_angles.position[7]), 
-                                                B=VisualizeMarkers.map_angle(self.human_joint_angles.position[8]))
+                                                G=VisualizeMarkers.map_angle(self.human_joint_angles.position[6]), 
+                                                B=VisualizeMarkers.map_angle(self.human_joint_angles.position[7]))
             
             # self.left_arm_marker.set_visible()
             # self.right_arm_marker.set_visible()
@@ -61,14 +65,18 @@ class VisualizeMarkers:
         except IndexError as e:
             print(e)
 
+        self.left_arm_progress_marker.update_str_marker(str(self.left_progress_str))
+
 
         self.left_arm_marker.marker_objectlisher.publish(self.left_arm_marker.marker_object)
         self.right_arm_marker.marker_objectlisher.publish(self.right_arm_marker.marker_object)
+        self.left_arm_progress_marker.marker_objectlisher.publish(self.left_arm_progress_marker.marker_object)
 
 
     ## CALLBACKS
     def human_joint_angles_cb(self, msg):
         self.human_joint_angles = msg
+        self.left_progress_str = msg.position[3]
 
 
     @staticmethod
