@@ -21,6 +21,8 @@ class MarkerBasics(object):
         elif type == "regular_str":
             text = " "
             self.init_str_marker(text)
+        elif type == "progress_bar":
+            self.init_bar_marker()
         else:
             raise NameError("Marker basic type is not defined properly")
 
@@ -84,6 +86,27 @@ class MarkerBasics(object):
             self.marker_object.header.frame_id = "human_base_link"
             self.marker_object.type = self.marker_object.TEXT_VIEW_FACING
             self.marker_object.text = text
+            self.marker_object.action = self.marker_object.ADD
+            self.marker_object.scale.x = 0.4
+            self.marker_object.scale.y = 0.4
+            self.marker_object.scale.z = 0.4
+            self.marker_object.color.a = 1.0
+            self.marker_object.color.r = 1.0
+            self.marker_object.color.g = 0.0
+            self.marker_object.color.b = 1.0
+            self.marker_object.pose.orientation.w = 1.0
+            self.marker_object.pose.position.x = 0.0
+            self.marker_object.pose.position.y = 0.0
+            self.marker_object.pose.position.z = 1.2
+            self.marker_object.id = i
+
+    def init_bar_marker(self):
+        self.marker_idx = 1
+        self.marker_object = Marker()
+        for i in range(1):
+            # self.marker_object.clear()
+            self.marker_object.header.frame_id = "human_base_link"
+            self.marker_object.type = self.marker_object.CYLINDER
             self.marker_object.action = self.marker_object.ADD
             self.marker_object.scale.x = 0.4
             self.marker_object.scale.y = 0.4
