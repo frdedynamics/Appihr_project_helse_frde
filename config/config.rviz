@@ -16,6 +16,7 @@ Panels:
         - /TF1/Tree1
         - /Marker1
         - /Marker2
+        - /Marker3
       Splitter Ratio: 0.621564507484436
     Tree Height: 719
   - Class: rviz/Selection
@@ -341,6 +342,14 @@ Visualization Manager:
     - Class: rviz/Marker
       Enabled: true
       Marker Topic: /right_shoulder_virt_link_marker
+      Name: Marker
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /background_marker
       Name: Marker
       Namespaces:
         {}
