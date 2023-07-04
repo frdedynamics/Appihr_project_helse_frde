@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="human_lower">
+    
+    <joint name="base_to_lower_trunk" type="fixed">
+        <origin rpy="0 ${-pi/2} 0" xyz="0 0 ${thickness+l_shank+l_thigh+l_lower_trunk/2}"/>
+        <parent link="human_base_link"/>
+        <child link="lower_trunk"/>
+    </joint>
+
+    <link name="lower_trunk">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+            <sphere radius="${r_lower_trunk}"/>
+        </geometry>
+        <material name="white"/>
+        </visual>
+    </link>
+
+    <joint name="lower_trunk_to_right_thigh" type="fixed">
+        <origin rpy="0 0 0" xyz="0 ${-r_lower_trunk/2} ${-l_lower_trunk/2}"/>
+        <parent link="lower_trunk"/>
+        <child link="right_thigh"/>
+    </joint>
+
+    <link name="right_thigh">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 ${-l_thigh/2}"/>
+        <geometry>
+            <cylinder length="${l_thigh}" radius="${r_thigh}"/>
+        </geometry>
+        <material name="white"/>
+        </visual>
+    </link>
+
+    <joint name="lower_trunk_to_left_thigh" type="fixed">
+        <origin rpy="0 0 0" xyz="0 ${r_lower_trunk/2} ${-l_lower_trunk/2}"/>
+        <parent link="lower_trunk"/>
+        <child link="left_thigh"/>
+    </joint>
+
+    <link name="left_thigh">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 ${-l_thigh/2}"/>
+        <geometry>
+            <cylinder length="${l_thigh}" radius="${r_thigh}"/>
+        </geometry>
+        <material name="white"/>
+        </visual>
+    </link>
+
+    <joint name="right_thight_to_shank" type="fixed">
+        <origin rpy="0 ${pi/2} 0" xyz="0 0 ${-l_thigh}"/>
+        <parent link="right_thigh"/>
+        <child link="right_shank"/>
+    </joint>
+
+    <link name="right_shank">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 ${-l_shank/2}"/>
+        <geometry>
+            <cylinder length="${l_shank}" radius="${r_shank}"/>
+        </geometry>
+        <material name="white"/>
+        </visual>
+    </link>
+
+    <joint name="right_shank_to_foot" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 ${-l_shank}"/>
+        <parent link="right_shank"/>
+        <child link="right_foot"/>
+    </joint>
+
+    <link name="right_foot">
+        <visual>
+        <origin rpy="0 0 0" xyz="${r_shank/2} 0 ${-thickness/2}"/>
+        <geometry>
+            <sphere radius="${w_foot}"/>
+        </geometry>
+        <material name="white"/>
+        </visual>
+    </link>
+
+    <joint name="left_thight_to_shank" type="fixed">
+        <origin rpy="0 ${pi/2} 0" xyz="0 0 ${-l_thigh}"/>
+        <parent link="left_thigh"/>
+        <child link="left_shank"/>
+    </joint>
+
+    <link name="left_shank">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 ${-l_shank/2}"/>
+        <geometry>
+            <cylinder length="${l_shank}" radius="${r_shank}"/>
+        </geometry>
+        <material name="white"/>
+        </visual>
+    </link>
+
+    <joint name="left_shank_to_foot" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 ${-l_shank}"/>
+        <parent link="left_shank"/>
+        <child link="left_foot"/>
+    </joint>
+
+    <link name="left_foot">
+        <visual>
+        <origin rpy="0 0 0" xyz="${r_shank/2} 0 ${-thickness/2}"/>
+        <geometry>
+            <sphere radius="${w_foot}"/>
+        </geometry>
+        <material name="white"/>
+        </visual>
+    </link>
+
+</xacro:macro>
+
+</robot>

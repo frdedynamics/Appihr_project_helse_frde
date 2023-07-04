@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<robot name="human" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find appirh_project_helse_frde)/urdf/macros/measurements.xacro" />
+  <xacro:include filename="$(find appirh_project_helse_frde)/urdf/macros/materials.xacro" />
+  <xacro:include filename="$(find appirh_project_helse_frde)/urdf/macros/human.gazebo.xacro" /> 
+  <xacro:include filename="$(find appirh_project_helse_frde)/urdf/macros/human.transmission.xacro" /> 
+  
+  <xacro:include filename="$(find appirh_project_helse_frde)/urdf/macros/spherical.xacro"/>
+  <xacro:include filename="$(find appirh_project_helse_frde)/urdf/human/human_lower.xacro"/>
+  <xacro:include filename="$(find appirh_project_helse_frde)/urdf/human/human_upper.xacro"/>
+  <create/>
+
+  <link name="world"/>
+  <joint name="world_joint" type="fixed">
+    <!-- <origin xyz="0 0 0" rpy="0 0 ${pi/2}" /> -->
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="world"/>
+    <child link="human_base_link"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+
+  <link name="human_base_link">
+    <visual>
+    <origin rpy="0 0 0" xyz="0 0 ${thickness+l_shank+l_thigh+l_lower_trunk/2}"/>
+      <geometry>
+        <sphere radius="${r_base_link}"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <collision>
+    <origin rpy="0 0 0" xyz="0 0 ${thickness+l_shank+l_thigh+l_lower_trunk/2}"/>
+      <geometry>
+        <sphere radius="${r_base_link}"/>
+      </geometry>
+    </collision>
+    <inertial>
+    <origin rpy="0 0 0" xyz="0 0 ${thickness+l_shank+l_thigh+l_lower_trunk/2}"/>
+      <mass value="${m_base_link}"/>
+      <inertia
+        ixx="${2*m_base_link*pow(r_base_link,2)/5}" ixy="0.0" ixz="0.0"
+        iyy="${2*m_base_link*pow(r_base_link,2)/5}" iyz="0.0"
+        izz="${2*m_base_link*pow(r_base_link,2)/5}"/>
+    </inertial>
+  </link>
+
+  <xacro:human_lower/>
+  <xacro:human_upper/>
+
+</robot>

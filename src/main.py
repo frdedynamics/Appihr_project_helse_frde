@@ -61,7 +61,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.rosTimer = QTimer() ## Simply ROS rate -- frequency of the ROS Node
         self.rosTimer.timeout.connect(self.ros_node.update)
 
-        self.start_threshold_window()  ## FOR DEBUG ONLY
+        # self.start_threshold_window()  ## FOR DEBUG ONLY
         self.show()
 
     
@@ -97,12 +97,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 
     def start_threshold_window(self):
-        #self.patient = self.addToPatientTool.selected_patient
-        self.patient = "gizem"
         print("Threshold selection started. Patient: ", self.patient)
         self.ThresholdSelection = ThresholdSelection(self)
         self.setCentralWidget(self.ThresholdSelection)
         self.setWindowTitle("Threshold Selection")
+        #self.patient = self.addToPatientTool.selected_patient
+        self.patient = "gizem"
+        self.ThresholdSelection.patient = self.patient
 
         self.ThresholdSelection.button_assign.clicked.connect(self.start_measurement_window)
         self.ThresholdSelection.button_back.clicked.connect(self.add_to_existing_patient)

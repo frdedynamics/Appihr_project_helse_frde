@@ -38,7 +38,7 @@ class ThresholdSelection(QWidget, ThresholdSelectionDialog):
     def list_data(self):
         self.comboBox_th.setEnabled(True)
         self.comboBox_th.clear()
-
+        print(self.patient)
         patient_path = PKG_PATH+'/test_users/'+self.patient
         chdir(patient_path)
         files = listdir(patient_path)

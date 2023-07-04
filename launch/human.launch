@@ -19,7 +19,7 @@
 
   <group ns = "human">
     <!-- Load human model to parameter server -->
-    <param name="human_description" command="$(find xacro)/xacro '$(find appirh_project_helse_frde)/urdf/human/human.urdf.xacro' human_params:=$(arg human_params)"/>
+    <param name="human_description" command="$(find xacro)/xacro '$(find appirh_project_helse_frde)/urdf/human-stick-figure/human.urdf.xacro' human_params:=$(arg human_params)"/>
 
     <!-- Combine joint values -->
     <node name="human_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
@@ -39,4 +39,8 @@
   </group>
 
 </launch>
+
+
+
+
 

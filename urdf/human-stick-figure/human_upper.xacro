@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="human_upper">
+
+    <xacro:spherical name="base_to_upper_trunk" parent="human_base_link" child="upper_trunk" x="1" y="-1" z="1">
+        <origin rpy="0 0 0" xyz="0 0 ${thickness+l_shank+l_thigh+l_lower_trunk}"/>
+    </xacro:spherical>
+    
+    <link name="upper_trunk">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 ${l_upper_trunk/2}"/>
+        <geometry>
+            <box size="${2*thickness} ${r_upper_trunk} ${l_upper_trunk}"/>
+        </geometry>
+        <material name="orange"/>
+        </visual>
+    </link>
+
+    <xacro:spherical name="right_shoulder" parent="upper_trunk" child="right_upper_arm" x="1" y="1" z="1">
+        <origin rpy="0 0 0" xyz="0 ${-r_upper_trunk} ${l_upper_trunk}"/>
+    </xacro:spherical>
+    
+    <link name="right_upper_arm">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 ${-l_upper_arm/2}"/>
+        <geometry>
+            <cylinder length="${l_upper_arm}" radius="${r_upper_arm}"/>
+        </geometry>
+        <material name="orange"/>
+        </visual>
+    </link>
+
+    <xacro:spherical name="left_shoulder" parent="upper_trunk" child="left_upper_arm" x="-1" y="1" z="-1">
+        <origin rpy="0 0 0" xyz="0 ${r_upper_trunk} ${l_upper_trunk}"/>
+    </xacro:spherical>
+    
+    <link name="left_upper_arm">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 ${-l_upper_arm/2}"/>
+        <geometry>
+            <cylinder length="${l_upper_arm}" radius="${r_upper_arm}"/>
+        </geometry>
+        <material name="orange"/>
+        </visual>
+    </link>
+
+    <xacro:spherical name="right_elbow" parent="right_upper_arm" child="right_forearm" x="fixed" y="1" z="1">
+        <origin rpy="0 0 0" xyz="0 0 ${-l_upper_arm}"/>
+    </xacro:spherical>
+    
+    <link name="right_forearm">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 ${-l_forearm/2}"/>
+        <geometry>
+            <cylinder length="${l_forearm}" radius="${r_forearm}"/>
+        </geometry>
+        <material name="orange"/>
+        </visual>
+    </link>
+
+    <xacro:spherical name="left_elbow" parent="left_upper_arm" child="left_forearm" x="fixed" y="1" z="-1">
+        <origin rpy="0 0 0" xyz="0 0 ${-l_upper_arm}"/>
+    </xacro:spherical>
+    
+    <link name="left_forearm">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 ${-l_forearm/2}"/>
+        <geometry>
+            <cylinder length="${l_forearm}" radius="${r_forearm}"/>
+        </geometry>
+        <material name="orange"/>
+        </visual>
+    </link>
+
+    <joint name="upper_trunk_to_neck" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 ${l_upper_trunk}"/>
+        <parent link="upper_trunk"/>
+        <child link="neck"/>
+    </joint>
+    
+    <link name="neck">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 ${l_neck/2}"/>
+        <geometry>
+            <cylinder length="${l_neck}" radius="${r_neck}"/>
+        </geometry>
+        <material name="white"/>
+        </visual>
+    </link>
+
+    <joint name="neck_to_head" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 ${l_neck}"/>
+        <parent link="neck"/>
+        <child link="head"/>
+    </joint>
+    
+    <link name="head">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 ${r_head}"/>
+        <geometry>
+            <sphere radius="${r_head}"/>
+        </geometry>
+        <material name="white"/>
+        </visual>
+    </link>
+
+    <joint name="right_forearm_to_hand" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 ${-l_forearm}"/>
+        <parent link="right_forearm"/>
+        <child link="right_hand"/>
+    </joint>
+
+    <link name="right_hand">
+        <visual>
+        <origin rpy="${-pi/2} ${pi/2} 0" xyz="0 0 ${-l_hand/2}"/>
+        <geometry>
+            <sphere radius="${w_hand}"/>
+        </geometry>
+        <material name="orange"/>
+        </visual>
+    </link>
+
+    <!-- <joint name="left_forearm_to_hand" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 ${-l_forearm}"/>
+        <parent link="left_forearm"/>
+        <child link="left_hand"/>
+    </joint> -->
+
+    <xacro:spherical name="left_wrist" parent="left_forearm" child="left_hand" x="1" y="1" z="1">
+        <origin rpy="0 0 0" xyz="0 0 ${-l_forearm}"/>
+    </xacro:spherical>
+
+    <link name="left_hand">
+        <visual>
+        <origin rpy="${pi/2} ${pi/2} 0" xyz="0 0 ${-l_hand/2}"/>
+        <geometry>
+            <sphere radius="${w_foot}"/>
+        </geometry>
+        <material name="orange"/>
+        </visual>
+    </link>
+</xacro:macro>
+
+</robot>
