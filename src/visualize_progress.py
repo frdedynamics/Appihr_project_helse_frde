@@ -6,6 +6,7 @@ from std_msgs.msg import String, Int16, Float32MultiArray
 from geometry_msgs.msg import Pose, Quaternion
 from Classes.MarkerBasics import MarkerBasics
 from sensor_msgs.msg import JointState
+from math import degrees as r2d
 
 class VisualizeMarkers:
     def __init__(self, rate=100):
@@ -32,7 +33,7 @@ class VisualizeMarkers:
     def init_subscribers_and_publishers(self):
         self.sub_human_joint_angles = rospy.Subscriber('/human/human_joint_states', JointState, self.human_joint_angles_cb)
 
-        self.left_arm_progress_marker.change_position(1.0, 1.0, 1.0)
+        self.left_arm_progress_marker.change_position(0.0, 1.0, 2.0)
 
 
 
@@ -76,7 +77,8 @@ class VisualizeMarkers:
     ## CALLBACKS
     def human_joint_angles_cb(self, msg):
         self.human_joint_angles = msg
-        self.left_progress_str = msg.position[3]
+        self.left_progress_str = str(round(r2d(-msg.position[4]), 2))
+        
 
 
     @staticmethod
