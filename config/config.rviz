@@ -8,6 +8,7 @@ Panels:
         - /Status1
         - /RobotModel2
         - /RobotModel2/Links1
+        - /RobotModel2/Links1/ball_left_elbow1
         - /RobotModel2/Links1/left_upper_arm1
         - /RobotModel2/Links1/round_up_upper_trunk1
         - /RobotModel2/Links1/world1
@@ -95,6 +96,26 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        ball_left_elbow:
+          Alpha: 1
+          Show Axes: true
+          Show Trail: false
+          Value: true
+        ball_right_elbow:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ballup_round_left_upper_trunk:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ballup_round_right_upper_trunk:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         base_to_upper_trunk_virt_link_1:
           Alpha: 1
           Show Axes: false
@@ -338,7 +359,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2.4366891384124756
+      Distance: 2.332932710647583
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -346,17 +367,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.393711656332016
-        Y: 0.10613098740577698
-        Z: 1.1535226106643677
+        X: -0.10974149405956268
+        Y: 0.10682002454996109
+        Z: 1.0579147338867188
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.22539877891540527
+      Pitch: 0.17539875209331512
       Target Frame: <Fixed Frame>
-      Yaw: 5.203610897064209
+      Yaw: 5.933617115020752
     Saved: ~
 Window Geometry:
   Displays:

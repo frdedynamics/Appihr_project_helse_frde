@@ -9,6 +9,8 @@
   <xacro:include filename="$(find appirh_project_helse_frde)/urdf/macros/spherical.xacro"/>
   <xacro:include filename="$(find appirh_project_helse_frde)/urdf/human-stick-figure/human_lower.xacro"/>
   <xacro:include filename="$(find appirh_project_helse_frde)/urdf/human-stick-figure/human_upper.xacro"/>
+
+  <xacro:include filename="$(find appirh_project_helse_frde)/urdf/human-stick-figure/objects.xacro"/>
   <create/>
 
   <link name="world"/>
@@ -32,5 +34,6 @@
 
   <xacro:human_lower/>
   <xacro:human_upper/>
+  <xacro:objects/>
 
 </robot>

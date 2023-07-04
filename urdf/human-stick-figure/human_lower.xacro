@@ -5,7 +5,7 @@
     <xacro:macro name="human_lower">
     
     <joint name="base_to_lower_trunk" type="fixed">
-        <origin rpy="0 ${-pi/2} 0" xyz="0 0 ${thickness+l_shank+l_thigh+l_lower_trunk/2}"/>
+        <origin rpy="0 ${-pi/2} 0" xyz="${-l_lower_trunk/2} 0 ${2*l_upper_trunk+r_lower_trunk}"/>
         <parent link="human_base_link"/>
         <child link="lower_trunk"/>
     </joint>

@@ -5,8 +5,6 @@
   <!-- Load user params -->
   <param name="user" type="string" value="gizem" />
 
-  <!-- Load joint controller configurations from YAML file to parameter server -->
-  <rosparam file="$(find appirh_project_helse_frde)/config/human_control.yaml" command="load"/>
   <!-- <arg name="human_params" default="$(find appirh_project_helse_frde)/config/human.yaml"/> -->
   <arg name="human_params" default="$(find appirh_project_helse_frde)/dynamic_patient_files/human.yaml"/>
 
@@ -32,7 +30,7 @@
 
     <!-- Publish joint state -->
     <!-- <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui">
-      <remap from="joint_states" to="human_joint_states" />
+      <remap from="joint_states"   to="human_joint_states" />
       <remap from="robot_description" to="human_description" />
     </node> -->
 
