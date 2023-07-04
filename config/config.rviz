@@ -9,7 +9,6 @@ Panels:
         - /RobotModel2
         - /RobotModel2/Links1
         - /RobotModel2/Links1/left_upper_arm1
-        - /RobotModel2/Links1/round_left_upper_trunk1
         - /RobotModel2/Links1/round_up_upper_trunk1
         - /RobotModel2/Links1/world1
         - /TF1/Frames1
@@ -253,6 +252,11 @@ Visualization Manager:
           Show Axes: true
           Show Trail: false
           Value: true
+        round_right_upper_trunk:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         round_up_upper_trunk:
           Alpha: 1
           Show Axes: true
@@ -262,7 +266,7 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: false
+          Value: true
         world:
           Alpha: 1
           Show Axes: true
@@ -334,7 +338,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 3.2832486629486084
+      Distance: 2.4366891384124756
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -350,9 +354,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.3153981566429138
+      Pitch: 0.22539877891540527
       Target Frame: <Fixed Frame>
-      Yaw: 0.1604308784008026
+      Yaw: 5.203610897064209
     Saved: ~
 Window Geometry:
   Displays:
