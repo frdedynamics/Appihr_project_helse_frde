@@ -5,6 +5,7 @@ import tf2_ros
 from std_msgs.msg import String, Int16, Float32MultiArray
 from geometry_msgs.msg import Pose, Quaternion
 from Classes.MarkerBasics import MarkerBasics
+from visualization_msgs.msg import Marker
 from sensor_msgs.msg import JointState
 from math import degrees as r2d
 
@@ -24,6 +25,24 @@ class VisualizeMarkers:
         self.tfBuffer = tf2_ros.Buffer()
         self.listener = tf2_ros.TransformListener(self.tfBuffer)
 
+        ## TODO: pull these data from patient yaml as ros_param and parametrize variable names accordingly.
+        ## Dummy progress bars for now.
+        self.prev_progress_bars = []
+        self.first_progress_bar_marker = MarkerBasics(topic_id="first_progress_bar_", type="progress_bar")
+        self.prev_progress_bars.append(self.first_progress_bar_marker)
+        self.second_progress_bar_marker = MarkerBasics(topic_id="second_progress_bar_", type="progress_bar")
+        self.prev_progress_bars.append(self.second_progress_bar_marker)
+        self.third_progress_bar_marker = MarkerBasics(topic_id="third_progress_bar_", type="progress_bar")
+        self.prev_progress_bars.append(self.third_progress_bar_marker)
+        self.forth_progress_bar_marker = MarkerBasics(topic_id="forth_progress_bar_", type="progress_bar")
+        self.prev_progress_bars.append(self.forth_progress_bar_marker)
+        self.fifth_progress_bar_marker = MarkerBasics(topic_id="fifth_progress_bar_", type="progress_bar")
+        self.prev_progress_bars.append(self.fifth_progress_bar_marker)
+
+        self.active_progress_bar = "fifth"
+        self.th_height = 0
+        
+
 
     # Deleting (Calling destructor)
     def __del__(self):
@@ -37,16 +56,38 @@ class VisualizeMarkers:
         self.left_arm_progress_bar_marker.change_position(0.0, 1.0, 1.0)
 
 
+        for i in range(0,5):
+            self.prev_progress_bars[i].change_position(0.0, 1.5+i*0.5, 1.0)
+            self.prev_progress_bars[i].change_scale(s_x=0.3, s_y=0.3, s_z=0.15*(5-i))
+            if i == 0:
+                self.prev_progress_bars[i].change_colour(0.0, 0.0, 255)
+                self.th_height = 0.15*(5-i)
+                print(self.th_height)
+            else:
+                self.prev_progress_bars[i].change_colour(192, 192, 192, 0.7)
+
 
     def update(self):
 
         self.left_arm_progress_score_marker.update_str_marker(str(self.left_progress_str))
 
-        self.left_arm_progress_bar_marker.change_scale(s_z=self.left_progress_score/90)
+        height_bar = self.left_progress_score/90
+        g_bar = 255*height_bar
+
+        self.left_arm_progress_bar_marker.change_scale(s_z=height_bar)
+        if height_bar < self.th_height:
+            self.left_arm_progress_bar_marker.change_colour(R=255, G=g_bar, B=0)
+        else:
+            self.left_arm_progress_bar_marker.change_colour(R=0, G=255, B=0)
+        # self.left_arm_progress_bar_marker.change_colour(R=255, G=165, B=0)
+        print(height_bar)
 
 
         self.left_arm_progress_score_marker.marker_objectlisher.publish(self.left_arm_progress_score_marker.marker_object)
         self.left_arm_progress_bar_marker.marker_objectlisher.publish(self.left_arm_progress_bar_marker.marker_object)
+
+        for i in range(0,5):
+            self.prev_progress_bars[i].marker_objectlisher.publish(self.prev_progress_bars[i].marker_object)
 
 
     ## CALLBACKS

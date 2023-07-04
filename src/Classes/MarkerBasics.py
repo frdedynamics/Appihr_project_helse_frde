@@ -186,13 +186,13 @@ class MarkerBasics(object):
         :return:
         """
 
-        self.marker_object.color.r = R
-        self.marker_object.color.g = G
-        self.marker_object.color.b = B
+        self.marker_object.color.r = R/255.0
+        self.marker_object.color.g = G/255.0
+        self.marker_object.color.b = B/255.0
         # This has to be, otherwise it will be transparent
         self.marker_object.color.a = a
 
-        print(R, "--", G, "--", B, "--")
+        # print(R, "--", G, "--", B, "--")
 
 
     def change_scale(self, s_x=0.4, s_y=0.4, s_z=0.1):
