@@ -123,6 +123,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.MeasurementTool.button_back.clicked.connect(self.start_threshold_window)
         self.MeasurementTool.button_start_sensor.clicked.connect(self.start_awindamonitor)
+        self.MeasurementTool.button_start_measurement.clicked.connect(self.start_human_launch)
 
 
     def start_awindamonitor(self):
@@ -141,7 +142,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Or rosbag
         # self.proc_bag = subprocess.Popen(["rosbag", "play", "-l", "/bag/test_bag_6_imus.bag"])
 
-        
+    def start_human_launch(self):        
         self.human_proc = subprocess.Popen(["sh", "sh/human.sh"]) ## Otherway halts the system. You need to use Popen: https://stackoverflow.com/questions/16855642/execute-a-shell-script-from-python-subprocess
 
 

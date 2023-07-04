@@ -109,6 +109,10 @@ class IMUsubscriber:
         self.pub.publish(self.human_joint_imu)
         self.pub_human_ori.publish(self.q_chest)
         self.pub_lw_ori.publish(self.motion_wrist_ori)
+        # print("0 - '{.2f}'".format(self.human_joint_imu.position[0]))
+        floats_array = np.array(self.human_joint_imu.position)
+        np.set_printoptions(precision=2)
+        print(floats_array)
 
 
     def cb_imu_chest(self, msg):
@@ -116,6 +120,7 @@ class IMUsubscriber:
         while self.calibration_flag < _CALIBRATION_TH:
             self.q_chest_init = kinematic.q_invert(self.chest_measurement.orientation)
             # print "calibrating chest"
+            print(self.calibration_flag)
         self.q_chest = kinematic.q_multiply(self.q_chest_init, self.chest_measurement.orientation)
         self.acc_chest = self.chest_measurement.linear_acceleration
         self.gyro_chest = self.chest_measurement.angular_velocity
