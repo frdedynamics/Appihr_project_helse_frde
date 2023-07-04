@@ -195,7 +195,7 @@ class MarkerBasics(object):
         print(R, "--", G, "--", B, "--")
 
 
-    def change_scale(self, s_x=1.0, s_y=0.1, s_z=0.1):
+    def change_scale(self, s_x=0.4, s_y=0.4, s_z=0.1):
         """
         :param s_x:
         :param s_y:

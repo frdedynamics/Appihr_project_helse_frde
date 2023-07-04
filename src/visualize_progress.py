@@ -16,6 +16,7 @@ class VisualizeMarkers:
         self.human_angle_thresholds = JointState()
         self.left_arm_progress_score_marker = MarkerBasics(topic_id="left_shoulder_progress_score_", type="regular_str")
         self.left_progress_str = "***"
+        self.left_progress_score = 0
         self.left_arm_progress_bar_marker = MarkerBasics(topic_id="left_shoulder_progress_bar_", type="progress_bar")
         self.ref_link = 'world'
         self.left_arm_th = 1.7 ##TODO: get from rosparam
@@ -33,13 +34,15 @@ class VisualizeMarkers:
         self.sub_human_joint_angles = rospy.Subscriber('/human/human_joint_states', JointState, self.human_joint_angles_cb)
 
         self.left_arm_progress_score_marker.change_position(0.0, 1.0, 2.0)
-        self.left_arm_progress_bar_marker.change_position(0.0, 1.0, 2.0)
+        self.left_arm_progress_bar_marker.change_position(0.0, 1.0, 1.0)
 
 
 
     def update(self):
 
         self.left_arm_progress_score_marker.update_str_marker(str(self.left_progress_str))
+
+        self.left_arm_progress_bar_marker.change_scale(s_z=self.left_progress_score/90)
 
 
         self.left_arm_progress_score_marker.marker_objectlisher.publish(self.left_arm_progress_score_marker.marker_object)
@@ -49,7 +52,8 @@ class VisualizeMarkers:
     ## CALLBACKS
     def human_joint_angles_cb(self, msg):
         self.human_joint_angles = msg
-        self.left_progress_str = str(round(r2d(-msg.position[4]), 2))
+        self.left_progress_score = round(r2d(-msg.position[4]), 2)
+        self.left_progress_str = str(self.left_progress_score)
         
 
 
