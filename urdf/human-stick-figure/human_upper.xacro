@@ -18,6 +18,36 @@
         </visual>
     </link>
 
+    <link name="round_up_upper_trunk">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+            <cylinder length="${r_upper_trunk}" radius="${thickness}"/>
+        </geometry>
+        <material name="orange"/>
+        </visual>
+    </link>
+    <joint name="upper_round_fixed_joint" type="fixed">
+        <origin xyz="0 0 ${l_upper_trunk}" rpy="${-pi/2} 0 0" />
+        <parent link="upper_trunk"/>
+        <child link="round_up_upper_trunk"/>
+    </joint>
+
+    <link name="round_left_upper_trunk">
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+            <cylinder length="${l_upper_trunk}" radius="${thickness}"/>
+        </geometry>
+        <material name="green"/>
+        </visual>
+    </link>
+    <joint name="left_round_fixed_joint" type="fixed">
+        <origin xyz="0 ${-r_upper_trunk/2} ${l_upper_trunk/2}" rpy="0 0 0" />
+        <parent link="upper_trunk"/>
+        <child link="round_left_upper_trunk"/>
+    </joint>
+
     <xacro:spherical name="right_shoulder" parent="upper_trunk" child="right_upper_arm" x="1" y="1" z="1">
         <origin rpy="0 0 0" xyz="0 ${-r_upper_trunk} ${l_upper_trunk}"/>
     </xacro:spherical>
