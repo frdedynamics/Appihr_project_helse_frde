@@ -137,9 +137,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # self.add_rosnode("appirh_project_helse_frde", "visualize_angles.py", "visualize_angles") 
 
         # Start Awindamonitor
-        ##### self.add_rosnode("awindamonitor", "awindamonitor", "awindamonitor")
+        self.add_rosnode("awindamonitor", "awindamonitor", "awindamonitor")
         # Or rosbag
-        self.proc_bag = subprocess.Popen(["rosbag", "play", "-l", "/bag/test_bag_6_imus.bag"])
+        # self.proc_bag = subprocess.Popen(["rosbag", "play", "-l", "/bag/test_bag_6_imus.bag"])
 
         
         self.human_proc = subprocess.Popen(["sh", "sh/human.sh"]) ## Otherway halts the system. You need to use Popen: https://stackoverflow.com/questions/16855642/execute-a-shell-script-from-python-subprocess

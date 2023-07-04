@@ -128,11 +128,6 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        chair:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         head:
           Alpha: 1
           Show Axes: false
@@ -215,6 +210,21 @@ Visualization Manager:
           Show Trail: false
           Value: false
         neck:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        obj_bed:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        obj_chair1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        obj_chair2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -364,7 +374,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2.9264307022094727
+      Distance: 5.753355979919434
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -372,17 +382,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.13707280158996582
-        Y: 0.11678336560726166
-        Z: 1.2220656871795654
+        X: 0.14835767447948456
+        Y: 0.8279644846916199
+        Z: 1.319745659828186
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.17539875209331512
+      Pitch: 0.21539859473705292
       Target Frame: <Fixed Frame>
-      Yaw: 5.933617115020752
+      Yaw: 5.873625755310059
     Saved: ~
 Window Geometry:
   Displays:

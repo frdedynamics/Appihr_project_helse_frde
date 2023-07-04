@@ -4,20 +4,50 @@
 
     <xacro:macro name="objects">
 
-    <joint name="base_to_chair_joint" type="fixed">
+    <joint name="base_to_chair1_joint" type="fixed">
         <origin rpy="0 0 ${pi/2}" xyz="${-l_lower_trunk/2} 0 0"/>
         <parent link="world"/>
-        <child link="chair"/>
+        <child link="obj_chair1"/>
     </joint>
 
-    <link name="chair">
+    <link name="obj_chair1">
         <visual>
             <origin rpy="1.57 0 0" xyz="0 0 0" />
             <geometry>
                 <mesh filename="file://$(arg meshDirectory)chair.stl" />
-                <!-- <box size="0.717032 1.000000 0.683208" /> -->
             </geometry>
             <material name="brown"/>
+        </visual>
+    </link>
+
+
+    <joint name="base_to_chair2_joint" type="fixed">
+        <origin rpy="0 0 ${pi/2}" xyz="${-l_lower_trunk/2} 2.5 0"/>
+        <parent link="world"/>
+        <child link="obj_chair2"/>
+    </joint>
+
+    <link name="obj_chair2">
+        <visual>
+            <origin rpy="1.57 0 0" xyz="0 0 0" />
+            <geometry>
+                <mesh filename="file://$(arg meshDirectory)chair.obj" />
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="base_to_bed_joint" type="fixed">
+        <origin rpy="0 0 ${pi/2}" xyz="-2.5 1.5 0"/>
+        <parent link="world"/>
+        <child link="obj_bed"/>
+    </joint>
+
+    <link name="obj_bed">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <geometry>
+                <mesh filename="file://$(arg meshDirectory)hospital_bed.obj" scale=".1 .1 .1" />
+            </geometry>
         </visual>
     </link>
 
