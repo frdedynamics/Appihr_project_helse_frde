@@ -5,8 +5,8 @@
     <xacro:macro name="objects">
 
     <joint name="base_to_chair_joint" type="fixed">
-        <origin rpy="0 ${-pi/2} 0" xyz="${-l_lower_trunk/2} 0 ${2*l_upper_trunk+r_lower_trunk}"/>
-        <parent link="human_base_link"/>
+        <origin rpy="0 0 ${pi/2}" xyz="${-l_lower_trunk/2} 0 0"/>
+        <parent link="world"/>
         <child link="chair"/>
     </joint>
 
@@ -14,19 +14,11 @@
         <visual>
             <origin rpy="1.57 0 0" xyz="0 0 0" />
             <geometry>
-                <!-- <mesh filename="chair.obj" /> -->
-                <box size="0.717032 1.000000 0.683208" />
+                <mesh filename="file://$(arg meshDirectory)chair.stl" />
+                <!-- <box size="0.717032 1.000000 0.683208" /> -->
             </geometry>
+            <material name="brown"/>
         </visual>
-        <collision>
-            <geometry>
-                <box size="0.717032 1.000000 0.683208" />
-            </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.0" />
-            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
-        </inertial>
     </link>
 
     
